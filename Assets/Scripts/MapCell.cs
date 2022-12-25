@@ -102,7 +102,7 @@ public class MapCell
     /// <returns></returns>
     bool TryUpdateAdjacentCells(MapCell cellWithSelectedModule)
     {
-        // список операций TryUpdateAdjacentCells соседних ячеек. Заполняется в результате выполнения метода TryUpdatePossibleModules
+        // список операций TryUpdateAdjacentCells соседних ячеек. Заполняется в результате выполнения метода TryUpdateStates
         List<TryUpdateAction> updateAdjacentCellsActions = new List<TryUpdateAction>();
         // пробуем обновить множество состояний соседних ячеек
         bool updateSuccess = AdjacentCellsPositions.All(cellPos =>
@@ -111,7 +111,7 @@ public class MapCell
         });
         if (!updateSuccess)
         {
-            // если обновление состояний соседних ячеек завершилось неудачно, откатываем связанные с ним изменения с помощью метода ReverseAdjacentCells
+            // если обновление состояний соседних ячеек завершилось неудачно, откатываем связанные с ним изменения с помощью метода ReverseStates
             ReverseStates(cellWithSelectedModule);
             return false;
         }
@@ -151,7 +151,6 @@ public class MapCell
             return false;
 
         // если в результате обновления были удалены какие-то состояния, сохраняем функцию обновления соседних ячеек к текущей для вызова в будущем
-        // этот момент можно было-бы упростить с помощью рекурсии, но я сделал так, чтобы реализация соответствовала приведенному в стаьте алгоритму.
         if (removeModuleCount > 0)
             updateAdjacentCellsActions.Add(() => TryUpdateAdjacentCells(cellWithSelectedState));
 

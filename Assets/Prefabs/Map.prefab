@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3396214251010469137}
-  - component: {fileID: 3396214251010469136}
+  - component: {fileID: -7750034224456458595}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3396214251010469136
+--- !u!114 &-7750034224456458595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,61 +52,30 @@ MonoBehaviour:
   - {fileID: 4045276989218320753, guid: 4c1b7d3f3114ed84fa070e6ecf1b4e67, type: 3}
   - {fileID: -7896689432266488803, guid: 8eb9bb60ab9cabf4282d9a0349991d8c, type: 3}
   _contactTypes:
-  - rid: 1650228524282281984
-  - rid: 1650228524282281985
-  - rid: 1650228524282281986
-  - rid: 1650228524282281987
-  - rid: 1650228524282281988
-  - rid: 1650228524282281989
-  - rid: 1650228524282281990
-  references:
-    version: 2
-    RefIds:
-    - rid: 1650228524282281984
-      type: {class: MapModuleContact, ns: , asm: Assembly-CSharp}
-      data:
-        _contactType: Ground
-        _notSuitableContactTypes:
-        - WallOnRight
-        - WallOnLeft
-        - GateOnRight
-        - GateOnLeft
-    - rid: 1650228524282281985
-      type: {class: MapModuleContact, ns: , asm: Assembly-CSharp}
-      data:
-        _contactType: Gate
-        _notSuitableContactTypes:
-        - Wall
-    - rid: 1650228524282281986
-      type: {class: MapModuleContact, ns: , asm: Assembly-CSharp}
-      data:
-        _contactType: GateOnRight
-        _notSuitableContactTypes:
-        - GateOnRight
-        - GateOnLeft
-        - WallOnRight
-    - rid: 1650228524282281987
-      type: {class: MapModuleContact, ns: , asm: Assembly-CSharp}
-      data:
-        _contactType: GateOnLeft
-        _notSuitableContactTypes:
-        - GateOnLeft
-        - GateOnRight
-        - WallOnLeft
-    - rid: 1650228524282281988
-      type: {class: MapModuleContact, ns: , asm: Assembly-CSharp}
-      data:
-        _contactType: WallOnRight
-        _notSuitableContactTypes:
-        - WallOnRight
-    - rid: 1650228524282281989
-      type: {class: MapModuleContact, ns: , asm: Assembly-CSharp}
-      data:
-        _contactType: WallOnLeft
-        _notSuitableContactTypes:
-        - WallOnLeft
-    - rid: 1650228524282281990
-      type: {class: MapModuleContact, ns: , asm: Assembly-CSharp}
-      data:
-        _contactType: Wall
-        _notSuitableContactTypes: []
+  - _contactType: Ground
+    _notSuitableContactTypes:
+    - WallOnRight
+    - WallOnLeft
+    - GateOnRight
+    - GateOnLeft
+  - _contactType: Gate
+    _notSuitableContactTypes:
+    - Wall
+  - _contactType: GateOnRight
+    _notSuitableContactTypes:
+    - GateOnRight
+    - GateOnLeft
+    - WallOnRight
+  - _contactType: GateOnLeft
+    _notSuitableContactTypes:
+    - GateOnLeft
+    - GateOnRight
+    - WallOnLeft
+  - _contactType: WallOnRight
+    _notSuitableContactTypes:
+    - WallOnRight
+  - _contactType: WallOnLeft
+    _notSuitableContactTypes:
+    - WallOnLeft
+  - _contactType: Wall
+    _notSuitableContactTypes: []

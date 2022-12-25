@@ -20,10 +20,8 @@ public class Map : MonoBehaviour
     [SerializeField] MapModule[] _mapModules;
     /// <summary>
     /// Список типов контактов, представленных объектами MapModuleContact, который заполняется в инспекторе.
-    /// Инциализирован как список экземпляра класса object, так-как ссылочная сериализация в Unity поддерживает только
-    /// такой формат списка. Для заполнения этого списка экземплярами класса MapModuleContact используется метод OnValidate.
     /// </summary>
-    [SerializeReference] List<object> _contactTypes = new List<object>();
+    [SerializeField] List<MapModuleContact> _contactTypes = new List<MapModuleContact>();
     /// <summary>
     /// Двумерный массив объектов MapCell, представляющий собой карту. Проводя аналогию с таблицей в этом массиве можно условно выделить
     /// строки (измерение массива с индексом 0) и столбцы (измерение массива с индексом 1).
@@ -41,18 +39,6 @@ public class Map : MonoBehaviour
     /// Одномерная версия двумерного массива MapCellsMatrix. Позволяет использовать функции Linq для работы с ячейками карты
     /// </summary>
     private MapCell[] _mapCellsArray;
-
-    /// <summary>
-    /// Этот метод запускается всякий раз при изменении параметров в Unspector-e. Используется для динамического заполнения
-    /// _contactTypes объектами 
-    /// </summary>
-    private void OnValidate()
-    {
-        for (int i = 0; i < _contactTypes.Count; i++)
-        {
-            if (_contactTypes[i] as MapModuleContact == null) _contactTypes[i] = new MapModuleContact();
-        }
-    }
 
     /// <summary>
     /// Генерация запускается в начале игры и состоит из 3-ех этапов:
@@ -166,6 +152,6 @@ public class Map : MonoBehaviour
     /// <returns></returns>
     public MapModuleContact GetContact(string contactType)
     {
-        return _contactTypes.First(c => c is MapModuleContact contact && contact.ContactType == contactType) as MapModuleContact;
+        return _contactTypes.First(contact => contact.ContactType == contactType);
     }
 }
